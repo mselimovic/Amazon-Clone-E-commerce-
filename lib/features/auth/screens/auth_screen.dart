@@ -3,6 +3,8 @@ import 'package:amazon_clonev2/common/widgets/custom_textfield.dart';
 import 'package:amazon_clonev2/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 
+import '../services/auth_service.dart';
+
 enum Auth {
   signin,
   signup,
@@ -21,6 +23,7 @@ class _AuthScreenState extends State<AuthScreen> {
   final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
 
+  final AuthService authService = AuthService();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
@@ -33,9 +36,19 @@ class _AuthScreenState extends State<AuthScreen> {
     _nameController.dispose();
   }
 
+  void signUpUser() {
+    authService.singUpUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+      name: _nameController.text,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: GlobalVariables.greyBackgroundCOlor,
       body: SafeArea(
           child: Padding(
@@ -93,7 +106,11 @@ class _AuthScreenState extends State<AuthScreen> {
                       const SizedBox(height: 10),
                       CustomButton(
                         text: 'Sign Up',
-                        onTap: () {},
+                        onTap: () {
+                          if (_signUpFormKey.currentState!.validate()) {
+                            signUpUser();
+                          }
+                        },
                       )
                     ],
                   ),
