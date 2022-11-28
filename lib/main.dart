@@ -1,5 +1,7 @@
 import 'package:amazon_clonev2/constants/global_variables.dart';
 import 'package:amazon_clonev2/features/auth/screens/auth_screen.dart';
+import 'package:amazon_clonev2/features/auth/services/auth_service.dart';
+import 'package:amazon_clonev2/features/home/screens/home_screen.dart';
 import 'package:amazon_clonev2/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:amazon_clonev2/router.dart';
@@ -13,10 +15,22 @@ void main() {
   ], child: const MyApp()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final AuthService authService = AuthService();
+
+  @override
+  void initState() {
+    super.initState();
+    authService.getUserData(context);
+  }
+
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Amazon Clone',
@@ -33,7 +47,9 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: const AuthScreen(),
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+          ? const HomeScreen()
+          : const AuthScreen(),
     );
   }
 }
