@@ -1,4 +1,5 @@
 import 'package:amazon_clonev2/common/widgets/bottom_bar.dart';
+import 'package:amazon_clonev2/features/admin/screens/add_products_screen.dart';
 import 'package:amazon_clonev2/features/auth/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const BottomBar(),
+      );
+    case AddProductScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const AddProductScreen(),
       );
     default:
       return MaterialPageRoute(
