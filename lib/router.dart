@@ -2,6 +2,7 @@ import 'package:amazon_clonev2/common/widgets/bottom_bar.dart';
 import 'package:amazon_clonev2/features/admin/screens/add_products_screen.dart';
 import 'package:amazon_clonev2/features/auth/screens/auth_screen.dart';
 import 'package:amazon_clonev2/features/home/screens/category_deals_screen.dart';
+import 'package:amazon_clonev2/features/search/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'features/home/screens/home_screen.dart';
@@ -34,6 +35,14 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => CategoryDealsScreen(
           category: category,
+        ),
+      );
+    case SearchScreen.routeName:
+      var searchQuery = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => SearchScreen(
+          searchQuery: searchQuery,
         ),
       );
     default:
