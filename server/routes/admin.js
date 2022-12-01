@@ -1,8 +1,7 @@
-const e = require("express");
 const express = require("express");
 const adminRouter = express.Router();
 const admin = require("../middlewares/admin");
-const Product = require("../models/product");
+const { Product } = require("../models/product");
 
 // Add products
 adminRouter.post("/admin/add-product", admin, async (req, res) => {
