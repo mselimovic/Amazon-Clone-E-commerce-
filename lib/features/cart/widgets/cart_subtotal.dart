@@ -11,9 +11,9 @@ class CartSubtotal extends StatelessWidget {
     int sum = 0;
 
     // ERROR TO HANDLE
-    // user.cart
-    //     .map((e) => sum += e['quantity'] * e['product']['price'] as int)
-    //     .toList();
+    user.cart
+        .map((e) => sum += e['quantity'] * e['product']['price'] as int)
+        .toList();
 
     return Container(
       margin: const EdgeInsets.all(10),

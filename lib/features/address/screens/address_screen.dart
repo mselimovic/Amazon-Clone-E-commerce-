@@ -1,9 +1,12 @@
 import 'package:amazon_clonev2/constants/utils.dart';
+import 'package:amazon_clonev2/features/address/services/address_services.dart';
+import 'package:amazon_clonev2/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:pay/pay.dart';
 
 import 'package:amazon_clonev2/common/widgets/custom_textfield.dart';
 import 'package:amazon_clonev2/constants/global_variables.dart';
+import 'package:provider/provider.dart';
 
 class AddressScreen extends StatefulWidget {
   static const String routeName = '/address';
@@ -26,6 +29,7 @@ class _AddressScreenState extends State<AddressScreen> {
 
   String addressToBeUsed = "";
   List<PaymentItem> paymentItems = [];
+  final AddressServices addressServices = AddressServices();
 
   @override
   void initState() {
@@ -48,7 +52,20 @@ class _AddressScreenState extends State<AddressScreen> {
     cityController.dispose();
   }
 
-  void onGooglePayResult(res) {}
+  void onGooglePayResult(res) {
+    if (Provider.of<UserProvider>(context, listen: false)
+        .user
+        .address
+        .isEmpty) {
+      addressServices.saveUserAdress(
+          context: context, address: addressToBeUsed);
+    }
+    addressServices.placeOrder(
+      context: context,
+      address: addressToBeUsed,
+      totalSum: double.parse(widget.totalAmount),
+    );
+  }
 
   void payPressed(String addressFromProvider) {
     addressToBeUsed = '';
@@ -74,7 +91,8 @@ class _AddressScreenState extends State<AddressScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var address = "101 Baker Street 75270";
+    var address = context.watch<UserProvider>().user.address;
+    // var address = "101 Baker Street, 75270";
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),

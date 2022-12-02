@@ -33,9 +33,9 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     final user = context.watch<UserProvider>().user;
     int sum = 0;
-    // user.cart
-    //     .map((e) => sum += e['quantity'] * e['product']['price'] as int)
-    //     .toList();
+    user.cart
+        .map((e) => sum += e['quantity'] * e['product']['price'] as int)
+        .toList();
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
