@@ -4,14 +4,14 @@ const { productSchema } = require("./product");
 const orderSchema = mongoose.Schema({
   products: [
     {
-      products: productSchema,
+      product: productSchema,
       quantity: {
         type: Number,
         required: true,
       },
     },
   ],
-  totalProce: {
+  totalPrice: {
     type: Number,
     required: true,
   },
@@ -19,8 +19,10 @@ const orderSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  userId: { type: String, required: true },
-
+  userId: {
+    required: true,
+    type: String,
+  },
   orderedAt: {
     type: Number,
     required: true,

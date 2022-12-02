@@ -3,8 +3,10 @@ import 'package:amazon_clonev2/features/address/screens/address_screen.dart';
 import 'package:amazon_clonev2/features/admin/screens/add_products_screen.dart';
 import 'package:amazon_clonev2/features/auth/screens/auth_screen.dart';
 import 'package:amazon_clonev2/features/home/screens/category_deals_screen.dart';
+import 'package:amazon_clonev2/features/order_details/screens/order_details.dart';
 import 'package:amazon_clonev2/features/product_details/screens/product_details_screen.dart';
 import 'package:amazon_clonev2/features/search/screens/search_screen.dart';
+import 'package:amazon_clonev2/models/order.dart';
 import 'package:amazon_clonev2/models/product.dart';
 import 'package:flutter/material.dart';
 
@@ -64,7 +66,14 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           totalAmount: totalAmount,
         ),
       );
-
+    case OrderDetailScreen.routeName:
+      var order = routeSettings.arguments as Order;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => OrderDetailScreen(
+          order: order,
+        ),
+      );
     default:
       return MaterialPageRoute(
         builder: (_) => const Scaffold(
