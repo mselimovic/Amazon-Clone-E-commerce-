@@ -9,6 +9,7 @@ class User {
   final String type;
   final String token;
   final List<dynamic> cart;
+
   User({
     required this.id,
     required this.name,
@@ -42,12 +43,11 @@ class User {
       address: map['address'] ?? '',
       type: map['type'] ?? '',
       token: map['token'] ?? '',
-      // cart: List<Map<String, dynamic>>.from(
-      //   map['cart']?.map(
-      //     (x) => Map<String, dynamic>.from(x),
-      //   ),
-      // ),
-      cart: map['cart'] ?? '',
+      cart: List<Map<String, dynamic>>.from(
+        map['cart']?.map(
+          (x) => Map<String, dynamic>.from(x),
+        ),
+      ),
     );
   }
 

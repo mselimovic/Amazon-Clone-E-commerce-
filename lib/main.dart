@@ -32,6 +32,7 @@ class _MyAppState extends State<MyApp> {
     authService.getUserData(context);
   }
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,

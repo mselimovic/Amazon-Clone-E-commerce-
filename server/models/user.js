@@ -41,7 +41,7 @@ const userSchema = mongoose.Schema({
   // cart
   cart: [
     {
-      profuct: productSchema,
+      product: productSchema,
       quantity: {
         type: Number,
         required: true,

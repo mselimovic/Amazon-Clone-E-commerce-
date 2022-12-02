@@ -16,6 +16,7 @@ class ProductDetailsServices {
     required Product product,
   }) async {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
+
     try {
       http.Response res = await http.post(
         Uri.parse('$uri/api/add-to-cart'),
@@ -27,6 +28,7 @@ class ProductDetailsServices {
           'id': product.id!,
         }),
       );
+
       httpErrorHandle(
         response: res,
         context: context,
@@ -47,6 +49,7 @@ class ProductDetailsServices {
     required double rating,
   }) async {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
+
     try {
       http.Response res = await http.post(
         Uri.parse('$uri/api/rate-product'),
@@ -59,6 +62,7 @@ class ProductDetailsServices {
           'rating': rating,
         }),
       );
+
       httpErrorHandle(
         response: res,
         context: context,

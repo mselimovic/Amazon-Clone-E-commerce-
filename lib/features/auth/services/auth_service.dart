@@ -1,10 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:amazon_clonev2/common/widgets/bottom_bar.dart';
 import 'package:amazon_clonev2/constants/error_handling.dart';
 import 'package:amazon_clonev2/constants/global_variables.dart';
 import 'package:amazon_clonev2/constants/utils.dart';
-import 'package:amazon_clonev2/features/home/screens/home_screen.dart';
 import 'package:amazon_clonev2/models/user.dart';
 import 'package:amazon_clonev2/providers/user_provider.dart';
 import 'package:flutter/cupertino.dart';
