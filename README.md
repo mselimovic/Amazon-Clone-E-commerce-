@@ -24,7 +24,7 @@ After cloning this repository, migrate to amazon_clonev2 folder. Then:
 
 - Create MongoDB Project & Cluster
 - Click on Connect, follow the process where you will get the uri.- Replace the MongoDB uri with yours in server/index.js[const DB="YOURKEY"].
-- Head to lib/constants/global_variables.dart file, replace with your IP Address (String uri = 'http://YOURIP:3000';).
+- Head to lib/constants/global_variables.dart file, replace with your IP Address (String uri = http://"YOURIP":3000;).
 - Create Cloudinary Project, enable unsigned operation in settings.
 - Head to lib/features/admin/services/admin_services.dart, replace denfgaxvg and uszbstnu with your Cloud Name and Upload Preset respectively.
 
@@ -50,14 +50,11 @@ After cloning this repository, migrate to amazon_clonev2 folder. Then:
 
 - User Side
 
-  <img src="https://i.imgur.com/Ei2aoD4.gif" height=650>
-<img src="https://i.imgur.com/6u2X03u.png" height=200>
-<img src="https://i.imgur.com/AhJY7Ju.png" height=200>
-<img src="https://i.imgur.com/AhJY7Ju.png" height=200>
-<img src="https://i.imgur.com/097gFlI.png" height=200>
-<img src="https://i.imgur.com/wnXGPIy.png" height=200>
-<img src="https://i.imgur.com/Y9jxRlU.png" height=200>
-<img src="https://i.imgur.com/ue9wtDT.png" height=200>
+ <img src="https://user-images.githubusercontent.com/108269074/205439621-d49ed375-0a4a-4786-ac83-c6ee9ecddaf4.gif" height=650)>
+  
+  
+<img src="https://i.imgur.com/6u2X03u.png" height=200>      <img src="https://i.imgur.com/AhJY7Ju.png" height=200>       <img src="https://i.imgur.com/097gFlI.png" height=200>      <img src="https://i.imgur.com/wnXGPIy.png" height=200>      <img src="https://i.imgur.com/Y9jxRlU.png" height=200>      <img src="https://i.imgur.com/ue9wtDT.png" height=200>
+
 
 ---
 
@@ -65,4 +62,5 @@ After cloning this repository, migrate to amazon_clonev2 folder. Then:
 
 - LinkedIn - [@Mehmed](www.linkedin.com/in/meša-selimović-18b189251)
 
-[Back To The Top](#Amazon)
+[Back To The Top](/Amazon-clone-project)
+
