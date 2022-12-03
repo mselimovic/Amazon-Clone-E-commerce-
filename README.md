@@ -1,4 +1,4 @@
-# Amazon Clone Project
+# AmazonClone 
 
 FreeCodeCamp.org follow-along course for Flutter e-commerce App.
 
@@ -60,7 +60,7 @@ After cloning this repository, migrate to amazon_clonev2 folder. Then:
 
 ## Author Info
 
-- LinkedIn - [@Mehmed](www.linkedin.com/in/meša-selimović-18b189251)
+- LinkedIn - [@Mehmed](https://www.linkedin.com/in/meša-selimović-18b189251/)
 
-[Back To The Top](/Amazon-clone-project)
+[Back To The Top](#AmazonClone)
 
